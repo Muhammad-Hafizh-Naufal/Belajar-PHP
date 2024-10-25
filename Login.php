@@ -1,14 +1,21 @@
 <?php
 
+// username dan password untuk login
 $username = "admin";
 $password = "admin";
 
 
+// mengecek apakah tombol submit sudah pernah di tekan
 if (isset($_POST["submit"])) {
 
+    // mengecek apakah username dan password sesuai
     if ($_POST["username"] === $username && $_POST["password"] === $password) {
 
+        // jika sesuai, redirect ke list mahasiswa(index.php) utama
         header("Location: index.php");
+        exit;
+
+        // jika tidak sesuai, tampilkan pesan error yang di tampung variabel $err
     } else {
         $err = true;
     }

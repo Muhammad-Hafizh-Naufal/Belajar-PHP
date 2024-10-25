@@ -1,5 +1,6 @@
 <?php
 
+
 $mahasiswa = [
     [
         "npm" => "10122919",
@@ -32,7 +33,7 @@ $mahasiswa = [
 </head>
 <body>
 
-<h1>Daftar Mahasiswa</h1>
+<h1>Daftar Mahasiswa</h1>   
 
 
 
