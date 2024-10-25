@@ -1,34 +1,53 @@
 <?php
-// Program utama
-echo "Masukkan Nama Mahasiswa: ";
-$nama = trim(fgets(STDIN));
 
-echo "Masukkan Nilai Ujian 1: ";
-$nilai1 = intval(fgets(STDIN));
+$mahasiswa = [
+    [
+        "npm" => "10122919",
+        "nama" => "Muhammad Hafizh Naufal",
+        "jurusan" => "Sistem Informasi",
+    ],
+    [
+        "npm" => "10111213",
+        "nama" => "Muhammad Sumbul",
+        "jurusan" => "Ekonomi",
+    ],
+    [
+        "npm" => "12345678",
+        "nama" => "Khaled Kasmiri",
+        "jurusan" => "Teknik Pertambangan",
+    ],
+];
 
-echo "Masukkan Nilai Ujian 2: ";
-$nilai2 = intval(fgets(STDIN));
-
-echo "Masukkan Nilai Ujian 3: ";
-$nilai3 = intval(fgets(STDIN));
-
-// Hitung rata-rata
-$rataRata = ($nilai1 + $nilai2 + $nilai3) / 3;
-
-// Tentukan predikat dengan if-else
-if ($rataRata >= 85) {
-    $predikat = "A";
-} elseif ($rataRata >= 70) {
-    $predikat = "B";
-} elseif ($rataRata >= 60) {
-    $predikat = "C";
-} elseif ($rataRata >= 50) {
-    $predikat = "D";
-} else {
-    $predikat = "E";
-}
-
-// Output hasil
-echo "\n===== Hasil Penilaian =====\n";
-echo "Nama: $nama\nRata-rata: " . number_format($rataRata, 2) . "\nPredikat: $predikat\n";
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET & POST</title>
+</head>
+<body>
+
+<h1>Daftar Mahasiswa</h1>
+
+<?php foreach($mahasiswa as $mhs) :?>
+
+    <ul>
+    <li>
+        <a href="Detailmhs.php?
+        npm=<?php echo $mhs["npm"]; ?>
+        &nama=<?php echo $mhs["nama"]; ?>   
+        &jurusan=<?php echo $mhs["jurusan"]; ?>
+       
+        ">
+        <?php echo $mhs["nama"]; ?></a>
+    </li>
+</ul>
+
+    <?php endforeach ?>
+
+
+
+</body>
+</html>
