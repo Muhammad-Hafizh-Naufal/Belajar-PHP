@@ -12,6 +12,7 @@
 
 
 <ul>
+    <li><img src="<?php  echo $_GET["img"] ?>" alt="" width="100"></li>
     <li><?php  echo $_GET["npm"] ?></li>
     <li><?php  echo  $_GET["nama"]; ?></li>
     <li><?php  echo $_GET["jurusan"]; ?></li>
