@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     if ($_POST["username"] === $username && $_POST["password"] === $password) {
 
         // jika sesuai, redirect ke list mahasiswa(index.php) utama
-        header("Location: index.php");
+        header("Location: ListMhs.php");
         exit;
 
         // jika tidak sesuai, tampilkan pesan error yang di tampung variabel $err
