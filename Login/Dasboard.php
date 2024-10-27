@@ -1,16 +1,19 @@
 <?php
+
+// Memulai sesi untuk mengelola data session
 session_start();
 
+// Redirect ke halaman login jika pengguna belum login
 if (!isset($_SESSION["username"])) {
-    // Redirect ke halaman login jika pengguna belum login
-    header("Location: ./Login.php");
+    header("Location: ./Login.php"); 
     exit;
 }
 
-if (isset($_POST["logout"])) {
-    session_unset();
-    session_destroy();
-    header("Location: ./Login.php");
+//ika tombol logout ditekan, semua data sesi akan dihapus, sesi dihancurkan, dan pengguna akan dialihkan kembali ke halaman login.
+if (isset($_POST["loout"])) {
+    session_unset(); // Menghapus semua data sesi 
+    session_destroy(); // Menghancurkan sesi
+    header("Location: ./Login.php"); // Mengarahkan pengguna kembali ke halaman login
     exit;
 }
 ?>
@@ -126,6 +129,8 @@ if (isset($_POST["logout"])) {
     <!-- Header -->
     <div class="dashboard-header">
         <img src="../img/p1.jpg" alt="Profile Picture" class="profile-pic">
+
+        <!-- Tampilkan nama pengguna -->
         <h1><?= htmlspecialchars($_SESSION["username"]) ?></h1>
         <p>Web Developer</p>
     </div>
@@ -143,6 +148,8 @@ if (isset($_POST["logout"])) {
     <div class="dashboard-content">
         <div class="info-group">
             <div class="info-label">Email:</div>
+
+            <!-- Tampilkan email pengguna -->
             <div class="info-value"><?= $_SESSION["username"]?>@gmail.com</div>
         </div>
         <div class="info-group">
