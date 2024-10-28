@@ -1,3 +1,16 @@
+<?php
+
+include("Service/Database.php");
+
+// Menghubungkan ke tabel mahasiswa
+$mahasiswa =  query("SELECT * FROM mahasiswa");
+
+
+
+// Menutup koneksi database
+mysqli_close($db);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +31,27 @@
             <th>Kelas</th>
         </tr>
 
+
+        <!-- Fetch Data Dari Database -->
+         <?php $i = 1 ?>
+         <!-- Menggunakan `foreach` untuk loop setiap item dalam array `$mahasiswa` -->
+        <?php foreach ($mahasiswa as $mhs) :
+        ?>
         <tr>
-            <td>1</td>
+            <td><?php echo $i++  ?></td>
             <td>
                 <a href="">Edit</a> |
                 <a href="">Delete</a>
             </td>
+            <td><?= $mhs["npm"] ?></td>
+            <td><?= $mhs["nama"] ?></td>
+            <td><?= $mhs["kelas"] ?></td>
+
+            
         </tr>
+
+        <?php endforeach;
+        ?>
 
     </table>
 

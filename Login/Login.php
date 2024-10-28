@@ -13,7 +13,7 @@ $message = '';
 // Mengecek apakah form dengan metode POST telah dikirim, khususnya tombol "login"
 if(isset($_POST["login"])) {
 
-        // Menyimpan input username dan password dari form ke dalam variabel
+      // Menyimpan input username dan password dari form ke dalam variabel
        $username = $_POST["username"];
        $password = $_POST["password"];
 
