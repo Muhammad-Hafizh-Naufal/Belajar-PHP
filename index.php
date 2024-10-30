@@ -1,11 +1,10 @@
 <?php
 
-include("Service/Database.php");
+// Menghubungkan ke file service
+include("Service/Service.php");
 
 // Menghubungkan ke tabel mahasiswa
 $mahasiswa =  query("SELECT * FROM mahasiswa");
-
-
 
 // Menutup koneksi database
 mysqli_close($db);
@@ -43,7 +42,7 @@ mysqli_close($db);
             <td><?php echo $i++  ?></td>
             <td>
                 <a href="">Edit</a> |
-                <a href="">Delete</a>
+                <a href="hapus.php?npm=<?= $mhs["npm"] ?>">Delete</a>
             </td>
             <td><?= $mhs["npm"] ?></td>
             <td><?= $mhs["nama"] ?></td>
