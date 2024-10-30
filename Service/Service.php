@@ -1,3 +1,5 @@
+// File service berisi logika CRUD (Create, Read, Update, Delete)
+
 <?php
 
 include("Database.php");
@@ -44,5 +46,20 @@ function hapus($npm){
     return mysqli_affected_rows($db); // mengembalikan angka 0 jika gagal dan 1 jika sukses
 }
 
+// Fungsi ubah data
+function ubah($data){
 
+    global $db;
+ 
+    // meyimpan data yang di kirim dari form
+    $npm = htmlspecialchars($data['npm']); // htmlspecialchars() digunakan untuk mengantisipasi inputan user yang menguanakntai tag html
+    $nama = htmlspecialchars($data['nama']);
+    $kelas = htmlspecialchars($data['kelas']);
+
+      // query insert data
+   $query = "UPDATE mahasiswa SET npm = '$npm', nama = '$nama', kelas = '$kelas' WHERE npm = '$npm'";
+   mysqli_query($db, $query); // menguanaknti query pada database
+
+   return mysqli_affected_rows($db); //
+}
 ?>

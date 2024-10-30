@@ -54,7 +54,7 @@ mysqli_close($db);
                                 <td><?php echo $i++ ?></td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="" class="btn btn-warning btn-sm">
+                                        <a href="ubah.php?npm=<?= $mhs["npm"] ?>" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil"></i> Edit
                                         </a>
                                         <a href="hapus.php?npm=<?= $mhs["npm"] ?>" 
