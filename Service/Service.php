@@ -61,4 +61,15 @@ function ubah($data){
 
    return mysqli_affected_rows($db); //
 }
+
+// Fungsi cari
+function cari($keyword){
+
+    // query cari
+    $query = "SELECT * FROM mahasiswa WHERE nama LIKE '%$keyword%' OR npm LIKE '%$keyword%' OR kelas LIKE '%$keyword%'";
+
+    // memanggil fungsi query 
+    return query($query);
+}
+
 ?>

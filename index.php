@@ -6,6 +6,13 @@ include("Service/Service.php");
 // Menghubungkan ke tabel mahasiswa
 $mahasiswa =  query("SELECT * FROM mahasiswa");
 
+// Cek apakah tombol cari di tekan
+if(isset($_POST["cari"])) {
+
+    // Jika tombol cari di tekan, lakukan pencarian
+    $mahasiswa = cari($_POST["keyword"]); // variabel mahasiswa di tiban dengan yang baru jika cari di tekan
+}
+
 // Menutup koneksi database
 mysqli_close($db);
 ?>
@@ -26,12 +33,19 @@ mysqli_close($db);
         <div class="row mb-4">
             <div class="col">
                 <h1 class="display-6">Daftar Mahasiswa</h1>
+               
             </div>
+           
             <div class="col text-end">
                 <a href="tambah.php" class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i> Tambah Data Mahasiswa
                 </a>
+                <form action="" method="post" class="mt-3">
+                    <input type="text" name="keyword" id="keyword" placeholder="mencari">
+                    <button class="btn btn-primary" type="submit" name="cari" id="tombol-cari">Cari</button>
+                </form>
             </div>
+            
         </div>
 
         <div class="card shadow-sm">
