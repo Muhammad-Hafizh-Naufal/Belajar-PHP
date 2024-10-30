@@ -3,19 +3,19 @@ include("Service/Service.php");
 
 // cek apakah tombol submit sudah di tekan
 if(isset($_POST['submit'])) {
-
     // cek apakah data berhasil ditambahkan
-if(tambah($_POST) > 0) {
-    echo "data berhasil ditambahkan";
-    header("Location: index.php");
-} else {
-    echo "data gagal ditambahkan";
-    mysqli_error($db);
+    if(tambah($_POST) > 0) {
+        echo "<script>
+                alert('Data berhasil ditambahkan!');
+                document.location.href = 'index.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Data gagal ditambahkan!');
+              </script>";
+        mysqli_error($db);
+    }
 }
-
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -24,27 +24,57 @@ if(tambah($_POST) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Mahasiswa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
-<body>
-    
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-person-plus"></i> Tambah Data Mahasiswa
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="mb-3">
+                                <label for="npm" class="form-label">NPM</label>
+                                <input type="text" class="form-control" name="npm" id="npm" required
+                                       placeholder="Masukkan NPM">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" name="nama" id="nama" required
+                                       placeholder="Masukkan nama">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="kelas" class="form-label">Kelas</label>
+                                <input type="text" class="form-control" name="kelas" id="kelas" required
+                                       placeholder="Masukkan kelas">
+                            </div>
 
-<form action="" method="post" >
+                            <div class="d-grid gap-2">
+                                <button type="submit" name="submit" class="btn btn-primary">
+                                    <i class="bi bi-save"></i> Simpan Data
+                                </button>
+                                <a href="index.php" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Kembali
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<label for="npm">Masukan npm: </label>
-<br>
-<input type="text" name="npm" id="npm" required>
-<br>
-<label for="nama">Masukan nama: </label>
-<br>
-<input type="text" name="nama" id="nama" required>
-<br>    
-<label for="kelas">Masukan kelas: </label>
-<br>
-<input type="text" name="kelas" id="kelas" required>
-
-<button type="submit" name="submit" >Submit</button>
-
-</form>
-
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
