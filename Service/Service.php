@@ -1,6 +1,5 @@
-// File service berisi logika CRUD (Create, Read, Update, Delete)
-
 <?php
+// File service berisi logika CRUD (Create, Read, Update, Delete)
 
 include("Database.php");
 
